@@ -362,42 +362,42 @@
 
 <script>
 
-import Service from '../../../../../service/ERPService_T2'
-const service = new Service()
+// import Service from '../../../../../service/ERPService_T2'
+// const service = new Service()
 
 export default {
-    props: [],
+    props: [''],
     components: {},
     data() {
         return {
-            items: [],
-			PENDING_APPROVAL_ORDER_DETAIL : null, 
+            items: []
+			// order_detail : null, 
         }
     },
-	created() {
+	// created() {
 
-	},
-	async mounted() {
-		await this.Special_Request_Order_Detail__From_Service()
-	},
+	// },
+	// async mounted() {
+	// 	await this.Special_Request_Order_Detail__From_Service(1819)
+	// },
 
-	methods: {
+	// methods: {
 		
-        async Special_Request_Order_Detail__From_Service() {
-            service.getSpecialRequestOrderDetail()
-                .then(res => {
-                    console.log(res.data)
-                    this.PENDING_APPROVAL_ORDER_DETAIL = res.data.pending_approval_order_detail
-                })
-                .catch(err => {
-                    if(err) {
-                        console.log(err)
-                        this.PENDING_APPROVAL_ORDER_DETAIL = null
-                    }
-                })
-        },
+    //     async Special_Request_Order_Detail__From_Service(id) {
+    //         service.getSpecialRequestOrderDetail(id)
+    //             .then(res => {
+    //                 console.log(res.data)
+    //                 this.LOAD_SPECIAL_ORDER_DETAIL = res.data.pending_approval_order_detail;
+    //             })
+    //             .catch(err => {
+    //                 if(err) {
+    //                     console.log(err)
+    //                     this.LOAD_SPECIAL_ORDER_DETAIL = null
+    //                 }
+    //             })
+    //     },
 
-	},
+	// },
 }
 </script>
 
