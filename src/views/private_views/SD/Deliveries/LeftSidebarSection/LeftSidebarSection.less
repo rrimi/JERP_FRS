@@ -1,0 +1,75 @@
+@extra_lerge: ~"only screen and (min-width: 1250px)";
+@lerge      :~"only screen and (min-width: 1000px) and (max-width: 1249px)";
+@medium     :~"only screen and (min-width: 768px) and (max-width: 999px)";
+@small      :~"only screen and (max-width: 767px)";
+
+#deliveries-left-sidebar.deliveries-left-sidebar {
+    .deliveries-left-sidebar-section {
+        .deliveries-left-sidebar-section-inner {
+            .customer-list-section {
+                .customer-list-section-inner {
+                    &::-webkit-scrollbar {
+                        width: 4px;
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        box-shadow   : inset 0 0 5px grey;
+                        border-radius: 10px;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background   : #168fff;
+                        border-radius: 10px;
+                    }
+
+                    &::-webkit-scrollbar-thumb:hover {
+                        background: #004e98;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 1250+
+@media @extra_lerge {}
+
+// 1000 to 1249
+@media @lerge {}
+
+// 768 to 999
+@media @medium {
+    #deliveries-left-sidebar.deliveries-left-sidebar {
+        width: 280px;
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section {
+        width: 280px
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .search-section {
+        padding: 20px 10px 10px;
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .title-count {
+        padding: 10px;
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .customer-list-section .customer-list-section-inner {
+        width: 280px;
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .title-count p.total-customer {
+        font-size: 12px;
+    }
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .customer-list-section .customer-list-section-inner .customer-section-list .customer-section-list-inner {
+        padding: 12px 10px;
+    }
+
+    #deliveries-left-sidebar.deliveries-left-sidebar .deliveries-left-sidebar-section .deliveries-left-sidebar-section-inner .customer-list-section .customer-list-section-inner .customer-section-list .customer-section-list-inner .customer-id-type-section .customer-id-type-section-inner .id-section p.customer-id {
+        font-size: 14px;
+    }
+}
+
+// 767-
+@media @small {}
