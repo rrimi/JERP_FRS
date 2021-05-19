@@ -392,60 +392,60 @@ export const router = new VueRouter({
         // ROUTE STARTS FROM JR DEVELOPER - RIMI
         // ========================================================================================
 
-        // // Order Approval(Special Rate)
-        // {
-        //     path: '/features/local_sales/special-rate',
-        //     name: 'Special Rate',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/OrderApprovalSpecialRate/OrderApprovalSpecialRate.vue')
-        // },
+        // Order Approval(Special Rate)
+        {
+            path: '/features/local_sales/special-rate',
+            name: 'Special Rate',
+            component: () =>
+                import ('../views/private_views/SD/JR1/OrderApprovalSpecialRate/OrderApprovalSpecialRate.vue')
+        },
 
-        // // Order Approval - Special Discount
-        // {
-        //     path: '/features/local_sales/special-discount',
-        //     name: 'Special Discount',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/OrderApprovalSpecialDiscount/OrderApprovalSpecialDiscount.vue')
-        // },
+        // Order Approval - Special Discount
+        {
+            path: '/features/local_sales/special-discount',
+            name: 'Special Discount',
+            component: () =>
+                import ('../views/private_views/SD/JR1/OrderApprovalSpecialDiscount/OrderApprovalSpecialDiscount.vue')
+        },
 
-        // // Order (Direct Tender)
-        // {
-        //     path: '/features/local_sales/direct-tender',
-        //     name: 'Direct Tender',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/OrderDirectTender/OrderDirectTender.vue')
-        // },
+        // Order (Direct Tender)
+        {
+            path: '/features/local_sales/direct-tender',
+            name: 'Direct Tender',
+            component: () =>
+                import ('../views/private_views/SD/JR1/OrderDirectTender/OrderDirectTender.vue')
+        },
 
-        // // Order (Order Export)
-        // {
-        //     path: '/features/local_sales/order-export',
-        //     name: 'Export',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/OrderExport/OrderExport.vue')
-        // },
+        // Order (Order Export)
+        {
+            path: '/features/local_sales/order-export',
+            name: 'Export',
+            component: () =>
+                import ('../views/private_views/SD/JR1/OrderExport/OrderExport.vue')
+        },
 
-        // // Order (Third party tender)
-        // {
-        //     path: '/features/local_sales/third-party-tender',
-        //     name: 'Third Party Tender',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/OrderThirdPartyTender/OrderThirdPartyTender.vue')
-        // },
+        // Order (Third party tender)
+        {
+            path: '/features/local_sales/third-party-tender',
+            name: 'Third Party Tender',
+            component: () =>
+                import ('../views/private_views/SD/JR1/OrderThirdPartyTender/OrderThirdPartyTender.vue')
+        },
 
-        // // Special Request Approval
-        // {
-        //     path: '/features/local_sales/special-req-approval',
-        //     name: 'Special Request Approval',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/SpecialDiscount/SpecialDiscount.vue')
-        // },
-        // // Special Request Approval-2
-        // {
-        //     path: '/features/local_sales/special-req-approval-2',
-        //     name: 'Special Request Approval',
-        //     component: () =>
-        //         import ('../views/private_views/SD/JR1/SpecialRequestApproval/SpecialRequestApproval.vue')
-        // },
+        // Special Request Approval
+        {
+            path: '/features/local_sales/special-req-approval',
+            name: 'Special Request Approval',
+            component: () =>
+                import ('../views/private_views/SD/JR1/SpecialDiscount/SpecialDiscount.vue')
+        },
+        // Special Request Approval-2
+        {
+            path: '/features/local_sales/special-req-approval-2',
+            name: 'Special Request Approval',
+            component: () =>
+                import ('../views/private_views/SD/JR1/SpecialRequestApproval/SpecialRequestApproval.vue')
+        },
 
         // ========================================================================================
         // ROUTE ENDS FROM JR DEVELOPER - RIMI

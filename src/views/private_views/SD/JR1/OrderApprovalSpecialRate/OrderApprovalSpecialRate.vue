@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Heading from "../../../../components/master_layout/HeadingTitleBreadcrumbT3/HeadingTitleBreadcrumb";
+import Heading from "../../../../../components/master_layout/HeadingTitleBreadcrumbT3/HeadingTitleBreadcrumb";
 import RateSidebar from "./RateSidebar/RateSidebar";
 import RateDetails from "./RateDetails/RateDetails";
 // import ERPSidebarService from "../../../../../service/ERPSidebarService";
