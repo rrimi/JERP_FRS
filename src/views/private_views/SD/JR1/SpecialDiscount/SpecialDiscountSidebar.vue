@@ -10,25 +10,25 @@
                     <span class="filter_search"><i class="fa fa-filter"> </i> </span>
                </div>
               <div class="row2">
-                <p class="customer-info"><span class="label" >Special Request</span><span class="label-value" style="color: blue;" >(96)</span></p>
+                <p class="customer-info"><span class="label" >Special Request</span><span class="label-value" style="color: blue;" >( {{ PENDING_APPROVAL_LIST ? PENDING_APPROVAL_LIST.length : 0 }} )</span></p>
               </div>
             </div>
             <!--End Secondary Sidebar Header Area-->  
             
             <!--Start Secondary Sidebar Content Area--> 
             <div class="content jmi-scroll-section">
-                <div class="card_body" v-for="(item, i) in 96" :key="i" @click="singleItemClickHandler(item, i)">
+                <div :id="'card_body_' + i" class="card_body" v-for="(item, i) in PENDING_APPROVAL_LIST" :key="i" @click="singleItemClickHandler(item, i)">
                     <div class="row1">
-                        <h5>JMI-2231225</h5>
-                        <p class="tag-new">09/12/2020</p>
-                        <p class="search_by_item hide">{{ item.requisition_no }} {{ item.date }} {{ item.requisition }} {{ item.area }} {{ item.req_status }}</p>
+                        <p>{{ item.sbu_customer_info ? (item.sbu_customer_info.display_name ? item.sbu_customer_info.display_name : '') : '' }}</p>
                     </div>
                     <div class="row2">
-                        <p>New Bhai Bhai Pharmacy</p>
+                        <h5>{{ item.order_no ? item.order_no : '' }}</h5>
+                        <p class="tag-new">{{ item.submit_date ? dateFormat(item.submit_date) : '' }}</p>
+                        <p class="search_by_item hide">{{ item.requisition_no }} {{ item.date }} {{ item.requisition }} {{ item.area }} {{ item.req_status }}</p>
                     </div>
                     <div class="row3">
-                        <p class="tag-new">Total Bill<span class="label-value" >:102131.00</span></p>
-                        <p class="tag-new">Request<span class="label-value" >: PCT</span></p>
+                        <p class="tag-new">Total Bill<span class="label-value" >: {{ item.net_total ? Number(item.net_total).toFixed(2) : 0.00 }}</span></p>
+                        <p class="tag-new"><span class="label-value" >{{ item.sales_type ? saleTypeCreator(item.sales_type) : '' }}</span></p>
                     </div>
                 </div>
             </div>
@@ -42,15 +42,18 @@
 // const demoData = new DemoData()
 // import JMIFilter from '.././../../../../../functions/JMIFIlter'
 // const jmiFilter = new JMIFilter()
-// import ERPService from '../../../../../../service/ERPSidebarService'
-// const service = new ERPService()
+import Service from '../../../../../service/ERPService_T2'
+const service = new Service()
+import GlobalDateFormat from '../../../../../functions/GlobalDateFormat'
+const globalDateFormat = new GlobalDateFormat()
 
 export default {
     props: [],
     components: {},
     data() {
         return {
-            items: []
+            items: [],
+            PENDING_APPROVAL_LIST: null,
         }
     },
     computed: {
@@ -61,7 +64,7 @@ export default {
     created() {},
     async mounted() {
         // this.items = demoData.demo_data().requisition_items
-        await this.SOTCK_REQUISITION_LIST__FROM_SERVICE()
+        await this.SPECIAL_ORDER_LIST__FROM_SERVICE()
     },
     methods: {
         searchKeyUpHandler(value) {
@@ -73,9 +76,21 @@ export default {
 
             // jmiFilter.searchById_LeftSidebar(filter, list, txt_selector)
         },
-        singleItemClickHandler(item, i) {
-            console.log('index : ' + i)
+        singleItemClickHandler(item, index) {
+            console.log('index : ' + index)
             console.log(item)
+            // console.log(item)
+            
+            // let length = document.getElementsByClassName('card_body').length
+            // for(let i=0; i<length; i++) {
+            //     document.querySelector('#special-request-sidebar #card_body_' + i).className = 'card_body'
+            // }
+            // if(document.querySelector('#special-request-sidebar card_body_' + index).className === 'card_body') {
+            //     document.querySelector('#special-request-sidebar #card_body_' + index).className = 'card_body active'
+            // } else {
+            //     document.querySelector('#special-request-sidebar #card_body_' + index).className = 'card_body'
+            // }
+
             this.$emit('SINGLE_ITEM_SELECTED', item)
         },
         // ---------------------------------------------------------------------------
@@ -94,7 +109,39 @@ export default {
         //                 alert('Server Error 500. ' + err)
         //             }
         //         })
-        // }
+        // },
+        dateFormat(dt) {
+            return globalDateFormat.dateFormatT4(dt)
+        },
+        saleTypeCreator(data) {
+            let str = null
+            switch(data) {
+                case 'PD':
+                    str = 'Special Discount'
+                    break
+                case 'SR':
+                    str = 'Special Rate'
+                    break
+                default:
+                    break
+            }
+            
+            return str
+        },
+        async SPECIAL_ORDER_LIST__FROM_SERVICE() {
+            service.getSpecialOrdersRequestPendingApprovalList()
+                .then(res => {
+                    console.log(res.data)
+                    this.PENDING_APPROVAL_LIST = res.data.pending_approval_list
+                })
+                .catch(err => {
+                    if(err) {
+                        console.log(err)
+                        this.PENDING_APPROVAL_LIST = null
+                    }
+                })
+        }
+
     },
     watch: {
         LOAD_STOCK_REQUISITION_LIST(newVal) {
@@ -258,21 +305,21 @@ export default {
 .layout-sidebar.special_discount .content .card_body .row3 .zmdi-check-square{
 	color: var(--blue);
 }
-.layout-sidebar.special_discount .content .card_body .row1 h5 {
+.layout-sidebar.special_discount .content .card_body .row2 h5 {
     font-size: var(--font14);
     color: var(--blue);
     text-overflow: ellipsis;
     width: inherit;
     white-space: nowrap;
 }
-.layout-sidebar.special_discount .content .card_body .row1 .tag {
+.layout-sidebar.special_discount .content .card_body .row2 .tag {
     text-align: center;
     font-size: var(--font10) ;
     color: var(--black);
     padding: 1px 6px;
     border-radius: 50px;
 }
-.layout-sidebar.special_discount .content .card_body .row1 .tag .p .span{
+.layout-sidebar.special_discount .content .card_body .row2 .tag .p .span{
     text-align: center;
     font-size: var(--font10) ;
 	color:#d41d10!important;
@@ -280,7 +327,7 @@ export default {
     border-radius: 50px;
 	display: inline-block;
 }
-.layout-sidebar.special_discount .content .card_body .row2 p {
+.layout-sidebar.special_discount .content .card_body .row1 p {
     font-size: var(--font14) ;
     color: var(--text-black);
 }

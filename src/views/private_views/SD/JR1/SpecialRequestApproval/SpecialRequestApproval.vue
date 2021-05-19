@@ -3,7 +3,7 @@
         <Heading :pathName="pathName" :routeName="routeName" />
 
         <div class="layout-body">
-              <SpecialRequestApprovalSidebar/>
+            <SpecialRequestApprovalSidebar/>
             <SpecialRequestApprovalDetails/>
         </div>
     </div>
@@ -51,5 +51,11 @@ export default {
 </script>
 
 <style scoped>
+@import '../../../../../custom.css';
+@import '../../../../../assets/css/styles.css';
+
+/* @import '../../../../../assets/t2-style.css';
+@import '../../../../../assets/style-transfer_requition.css'; */
+
 
 </style>

@@ -362,17 +362,49 @@
 
 <script>
 
+import Service from '../../../../../service/ERPService_T2'
+const service = new Service()
+
 export default {
     props: [],
     components: {},
     data() {
         return {
-            items: []
+            items: [],
+			PENDING_APPROVAL_ORDER_DETAIL : null, 
         }
     },
+	created() {
+
+	},
+	async mounted() {
+		await this.Special_Request_Order_Detail__From_Service()
+	},
+
+	methods: {
+		
+        async Special_Request_Order_Detail__From_Service() {
+            service.getSpecialRequestOrderDetail()
+                .then(res => {
+                    console.log(res.data)
+                    this.PENDING_APPROVAL_ORDER_DETAIL = res.data.pending_approval_order_detail
+                })
+                .catch(err => {
+                    if(err) {
+                        console.log(err)
+                        this.PENDING_APPROVAL_ORDER_DETAIL = null
+                    }
+                })
+        },
+
+	},
 }
 </script>
+
 <style scoped>
+/* @import '../../../../../custom.css';
+@import '../../../../../assets/css/styles.css'; */
+
 .layout-container{
 	height: calc( 100vh - var(--used-height) );
     overflow-y: auto;

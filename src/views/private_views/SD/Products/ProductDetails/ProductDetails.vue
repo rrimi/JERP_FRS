@@ -108,4 +108,6 @@ export default {
 </script>
 
 <style scoped>
+@import '../../../../../custom.css';
+@import '../../../../../assets/css/styles.css';
 </style>

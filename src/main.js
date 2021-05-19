@@ -32,8 +32,8 @@ import './custom.js'
 // ------------------------------------------------------------------------
 import './custom.css'
 
-// import './assets/t2-style.css'
-// import './assets/style-transfer_requition.css'
+import './assets/t2-style.css'
+import './assets/style-transfer_requition.css'
 
 import './assets/css/styles.css'
 import './assets/css/styles_page_included.css'
@@ -57,20 +57,20 @@ Vue.use(VueHtmlToPaper);
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueGoogleMaps, {
-  load: {
-    key: "AIzaSyDl9xch1enBwqVj7OQwuLU6q1AoPkqviyI",
-    libraries: "places" // necessary for places input
-  }
+    load: {
+        key: "AIzaSyDl9xch1enBwqVj7OQwuLU6q1AoPkqviyI",
+        libraries: "places" // necessary for places input
+    }
 });
 Vue.use(VueGeolocation)
-// Vue.use(VueGoogleMap, {
-//   load: {
-//     apiKey: 'AIzaSyDl9xch1enBwqVj7OQwuLU6q1AoPkqviyI',
-//     // libraries: ['...']
-//   }
-// })
+    // Vue.use(VueGoogleMap, {
+    //   load: {
+    //     apiKey: 'AIzaSyDl9xch1enBwqVj7OQwuLU6q1AoPkqviyI',
+    //     // libraries: ['...']
+    //   }
+    // })
 Vue.config.silent = true
-// var $ = global.$;
+    // var $ = global.$;
 window.$ = $;
 
 import { configureFakeBackend } from './router';
@@ -89,24 +89,24 @@ Vue.config.productionTip = false
 //   measurementId: ""
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyAdshIIQA3BdlBAljuxpn1DS5aI_L9_lbo",
-  authDomain: "jmi-erp-f34ae.firebaseapp.com",
-  databaseURL: "https://jmi-erp-f34ae.firebaseio.com",
-  projectId: "jmi-erp-f34ae",
-  storageBucket: "jmi-erp-f34ae.appspot.com",
-  messagingSenderId: "305377898609",
-  appId: "1:305377898609:web:09ea96315d5886d5026bd0",
-  measurementId: "G-XX6DY0XRDX"
+    apiKey: "AIzaSyAdshIIQA3BdlBAljuxpn1DS5aI_L9_lbo",
+    authDomain: "jmi-erp-f34ae.firebaseapp.com",
+    databaseURL: "https://jmi-erp-f34ae.firebaseio.com",
+    projectId: "jmi-erp-f34ae",
+    storageBucket: "jmi-erp-f34ae.appspot.com",
+    messagingSenderId: "305377898609",
+    appId: "1:305377898609:web:09ea96315d5886d5026bd0",
+    measurementId: "G-XX6DY0XRDX"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 window.firebase = firebase;
 
 new Vue({
-  router,
-  store,
-  vuetify,
-  render: h => h(App)
+    router,
+    store,
+    vuetify,
+    render: h => h(App)
 }).$mount('#app')
 
 
@@ -114,9 +114,9 @@ new Vue({
 
 
 /*
-*
-* All popup modal should have cross icon to close
-* Screen which has left and right section - before click left item right section has a message
-* Every page should have Navigation id, feature id - common feature.
-* 
-*/
+ *
+ * All popup modal should have cross icon to close
+ * Screen which has left and right section - before click left item right section has a message
+ * Every page should have Navigation id, feature id - common feature.
+ * 
+ */
