@@ -45,7 +45,9 @@
 import Service from '../../../../../service/ERPService_T2'
 const service = new Service()
 import GlobalDateFormat from '../../../../../functions/GlobalDateFormat'
-const globalDateFormat = new GlobalDateFormat()
+const globalDateFormat = new GlobalDateFormat();
+
+
 
 export default {
     props: [],
@@ -64,7 +66,7 @@ export default {
     created() {},
     async mounted() {
         // this.items = demoData.demo_data().requisition_items
-        await this.SPECIAL_ORDER_LIST__FROM_SERVICE()
+        await this.SPECIAL_ORDER_LIST__FROM_SERVICE();
     },
     methods: {
         searchKeyUpHandler(value) {
@@ -129,7 +131,7 @@ export default {
             return str
         },
         async SPECIAL_ORDER_LIST__FROM_SERVICE() {
-            service.getSpecialOrdersRequestPendingApprovalList()
+            service.getSpecialOrdersRequestPendingApprovalList__SPECIAL_APPROVAL()
                 .then(res => {
                     console.log(res.data)
                     this.PENDING_APPROVAL_LIST = res.data.pending_approval_list

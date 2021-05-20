@@ -6,28 +6,28 @@
                     <div class="special_request_approval_area">
                         <div class="row special_request_approval_header">
                             <div class="col-lg-4 col-md-6 col-12 header_section_middle">
-                                <p class="header_1">Order ID : <span class="header-lvl-value">22319987</span></p>
+                                <p class="header_1">Order ID : <span class="header-lvl-value">{{ ORDER_DETAILS ? ORDER_DETAILS.order_no : '' }}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_middle_second">
-                                <p class="header_2">Customer : <span class="header-lvl-value">DHK_0301,Dhanmondi 32</span></p>
+                                <p class="header_2">Customer : <span class="header-lvl-value">{{ ORDER_DETAILS ? ORDER_DETAILS.customer_name : ''  }}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_last">
-                                <p class="header_3">Request Type : <span class="header-lvl-value">Special Rate</span></p>
+                                <p class="header_3">Request Type : <span class="header-lvl-value">{{ ORDER_DETAILS ? ORDER_DETAILS.sales_type ? ORDER_DETAILS.sales_type == 'SR' ? 'Special Rate' : '' : '' : ''}}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_middle">
-                                <p class="header_4">Territory : <span class="header-lvl-value"></span></p>
+                                <p class="header_4">Territory : <span class="header-lvl-value">{{ ORDER_DETAILS ? ORDER_DETAILS.area_name : '' }}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_middle_second">
-                                <p class="header_5">Address : <span class="header-lvl-value">DHK_0301,Dhanmondi 32</span></p>
+                                <p class="header_5">Address : <span class="header-lvl-value">Address</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_last">
-                                <p class="header_6"><span class="header-lvl-value"></span></p>
+                                <p class="header_6">Order Date :<span class="header-lvl-value">{{ ORDER_DETAILS ? dateFormat(ORDER_DETAILS.submit_date) : ''  }}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_last">
-                                <p class="header_7">AM : <span class="header-lvl-value">Atik Faisal</span></p>
+                                <p class="header_7">AM : <span class="header-lvl-value">{{ ORDER_DETAILS ? (ORDER_DETAILS.am) : ''  }}</span></p>
                             </div>
                             <div class="col-lg-4 col-md-6 col-12 header_section_last">
-                                <p class="header_8">MIO : <span class="header-lvl-value">Mehedi Hasan</span></p>
+                                <p class="header_8">MIO : <span class="header-lvl-value">{{ ORDER_DETAILS ? (ORDER_DETAILS.mio) : ''  }}</span></p>
                             </div>
                         </div>
                         <div class="special_request_approval_content">
@@ -35,317 +35,35 @@
 								<thead>
 									<tr>
 										<th scope="col"><p>Name</p></th>
-										<th scope="col"><p>Trade Price</p></th>
+										<th scope="col"><p>Trade Price <br> <small> (TP+VAT) </small></p></th>
 										<th scope="col"><p>New TP</p></th>
 										<th scope="col"><p>Quantity</p></th>
-										<th scope="col"><p>Discount</p></th>
-										<th scope="col"><p>Bonus</p></th>
+										<!-- <th scope="col"><p>Discount</p></th>
+										<th scope="col"><p>Bonus</p></th> -->
 										<th scope="col"><p>Total Price</p></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>2</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>2</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
-									<tr>
-										<td>Altrip.Almotitan</td>
-										<td>1000</td>
-										<td><div class="form-group"><i class="zmdi zmdi-minus"></i><input type="number" placeholder="5" class="form-control"><i class="zmdi zmdi-plus"></i> </div> </td>
-										<td>20</td>
-										<td>3</td>
-										<td>3</td>
-										<td>1799100.00</td>
-									</tr>
+								<tr v-for="(item, index) in ORDER_DETAILS_TABLE_DATA" v-bind:key="index">
+									<td> {{  item.product_name }} </td>
+									<td>  {{ item ? Number(parseFloat(item.standard_tp) + parseFloat(item.vat)).toFixed(2) :'' }} </td>
+									<td><div class="form-group"><span class="new_tp-increase" @click="decreaseOrderedItemClickHandler(data, i)"><i class="zmdi zmdi-minus"></i> </span>
+                                        <input :id="'new-tp-qty-' + i" type="number" :value="item.unit_tp" class="form-control" v-on:keyup="newtpKeyUp_request_approval_table(data, $event, i)" min="1" step="1" v-on:keydown="newtpKeyDown_request_approval_table($event, i)">
+                                        <span class="qty-decrease" @click="increaseOrderedItemClickHandler(data, i)"><i class="zmdi zmdi-plus"></i> </span> </div> </td>
+									<td> {{ Number(item.qty).toFixed(2) }} </td>
+									<!-- <td> {{ item.qty }} </td> -->
+									<!--<td> {{ Number(item.discount).toFixed(2) }}</td>
+									<td> {{ item.bonus }} </td>-->
+									<td> {{ Number(item.line_total).toFixed(2) }} </td>
+								</tr>
 								</tbody>
                             </table>
                         </div>
-                    </div>	
-					<div class="submit-section">
+                    </div>
+					<div class="submit-section">	
+                        <div class="reason">
+                            <p><span class="label">Reason</span><span class="label-value"> : </span></p>
+                        </div>
 						<div class="submit-section-percentage">
 							<p><span>Valid Untill:</span><input type="date" value="2017-06-01"></p>
 							<p><button type="button" class="btn btn-outline-danger">Cancel</button>
@@ -362,42 +80,75 @@
 
 <script>
 
-// import Service from '../../../../../service/ERPService_T2'
-// const service = new Service()
+import GlobalDateFormat from '../../../../../functions/GlobalDateFormat'
+const globalDateFormat = new GlobalDateFormat();
+
 
 export default {
-    props: [''],
+    props: ['selected_item_id', "ORDER_DETAILS"],
     components: {},
     data() {
         return {
-            items: []
-			// order_detail : null, 
+            items: [],
+			order_detail: null,
+            ORDER_DETAILS_TABLE_DATA: [],
+            special_rate_pct: []
         }
     },
-	// created() {
-
-	// },
-	// async mounted() {
-	// 	await this.Special_Request_Order_Detail__From_Service(1819)
-	// },
-
-	// methods: {
-		
-    //     async Special_Request_Order_Detail__From_Service(id) {
-    //         service.getSpecialRequestOrderDetail(id)
-    //             .then(res => {
-    //                 console.log(res.data)
-    //                 this.LOAD_SPECIAL_ORDER_DETAIL = res.data.pending_approval_order_detail;
-    //             })
-    //             .catch(err => {
-    //                 if(err) {
-    //                     console.log(err)
-    //                     this.LOAD_SPECIAL_ORDER_DETAIL = null
-    //                 }
-    //             })
-    //     },
-
-	// },
+	async mounted() {
+	},
+	methods: {
+        
+        dateFormat(dt) {
+            return globalDateFormat.dateFormatT4(dt)
+        },
+        increaseOrderedItemClickHandler(data, index) {
+            console.log(data + '    ' + index)
+            data.quantity++
+            // Free Product row quantity increase
+            if(data.offer_type === "free") {
+                this.ORDER_DETAILS_TABLE_DATA[index + 1].quantity++
+            }
+        },
+         decreaseOrderedItemClickHandler(data, index) {
+             console.log(data + '    ' + index)
+                if(data.quantity > 1) {
+                 data.quantity--
+             }
+             // Free Product row quantity decrease
+             if(data.offer_type === "free") {
+                 this.ORDER_DETAILS_TABLE_DATA[index + 1].quantity--
+             }
+         },
+        //--------- Ordered Table Quantity input keyup & keydown------------
+        newtpKeyUp_request_approval_table(data, value, i) {
+            console.log(value.keyCode)
+            let selector = document.querySelector('#special-request-approval-table-' + i)
+            if(parseInt(selector.value) === 0) {
+                selector.value = 1
+            } else if((selector.value).toString() === '') {
+                selector.value = 1
+            }
+        },
+        quantityKeyDown_ordered_table(value, i) {
+            console.log(document.querySelector('#special-request-approval-table-' + i).value)
+            if(value.keyCode === 190 || value.keyCode === 110) {
+                value.preventDefault()
+            }
+        }
+	},
+    watch: {
+        ORDER_DETAILS(newVal) {
+            if(newVal) {
+                console.log(newVal)
+                this.ORDER_DETAILS_TABLE_DATA = []
+                this.ORDER_DETAILS_TABLE_DATA = newVal.order_detail_info
+            }
+        },
+        special_rate_pct(newVal) {
+            console.log(newVal)
+        },
+     }
 }
 </script>
 
@@ -541,7 +292,7 @@ export default {
 	overflow-y: scroll;
 	font-size: var(--font14);
 	color: var(--text-black);
-	height: calc(100vh - (var(--used-height) + 240px));
+	height: calc(100vh - (var(--used-height) + 250px));
 }
 .special_request_approval_content .table.special_request_approval-table tbody tr td {
 	padding: 4px;
@@ -568,6 +319,9 @@ export default {
   }
   .special_request_approval-table th:nth-child(2){
 	text-align: center;
+  }
+  .special_request_approval-table th:nth-child(2) small{
+	font-size: 60%;
   }
   .special_request_approval-table td:nth-child(3){
 	text-align: center;
@@ -614,13 +368,16 @@ export default {
     border-radius: 100px;
     margin: 0px 10px;
 }
+.submit-section .reason span{
+   padding-left: 11px;
+}
 .submit-section {
 	position: relative;
 }
 .submit-section .submit-section-percentage {
 	display: flex;
 	font-size: var(--font14);
-    padding-top: 25px;
+    padding-top: 0px;
 }
 .submit-section .submit-section-percentage span{
 	width: 17%;

@@ -27,7 +27,7 @@ export default {
     
     data() {
         return {
-        routeName: "Special Request Approval",
+        routeName: "Special Request Approval Two",
         parentPath: "Local Sales",
         pathName: [],
         };
@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         createBreadcrumbData() {
-        this.pathName = [{ name: "Features" }, { name: "Local Sales" }, { name: "Special Request Approval" }];
+        this.pathName = [{ name: "Features" }, { name: "Local Sales" }, { name: "Special Request Approval Two" }];
       // this.pathName = breadcrumbFunctions.jmiERPBreadcrumb(window.location.pathname)
         },
     }
@@ -51,11 +51,5 @@ export default {
 </script>
 
 <style scoped>
-@import '../../../../../custom.css';
-@import '../../../../../assets/css/styles.css';
-
-/* @import '../../../../../assets/t2-style.css';
-@import '../../../../../assets/style-transfer_requition.css'; */
-
 
 </style>

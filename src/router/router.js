@@ -434,14 +434,14 @@ export const router = new VueRouter({
 
         // Special Request Approval
         {
-            path: '/features/local_sales/special-req-approval',
+            path: '/features/local_sales/special-req-approval-2',
             name: 'Special Request Approval',
             component: () =>
                 import ('../views/private_views/SD/JR1/SpecialDiscount/SpecialDiscount.vue')
         },
         // Special Request Approval-2
         {
-            path: '/features/local_sales/special-req-approval-2',
+            path: '/features/local_sales/special-req-approval',
             name: 'Special Request Approval',
             component: () =>
                 import ('../views/private_views/SD/JR1/SpecialRequestApproval/SpecialRequestApproval.vue')
